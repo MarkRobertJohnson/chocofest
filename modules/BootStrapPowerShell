@@ -1,5 +1,5 @@
 ##AH:UseTextMode
-module BootstrapPowerShell
+module BootStrapPowerShell
 {
     set @bootStrapPsPackages = @(PSDscResources, PackageManagementProviderResource, PackageManagement);
     
