@@ -1,4 +1,4 @@
 ##AH:UseTextMode
 
 
-call BootstrapPowerShell();
+call BootStrapPowerShell();
