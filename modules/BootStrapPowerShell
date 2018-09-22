@@ -1,3 +1,12 @@
-module BootStrapPowerShell
+##AH:UseTextMode
+module BootstrapPowerShell
 {
+    set @bootStrapPsPackages = @(PSDscResources, PackageManagementProviderResource, PackageManagement);
+    
+    with executionPolicy=always {
+        foreach $ModuleName in @bootStrapPsPackages
+        {
+            set $b = $PSEval("if(!(Get-DscResource -Module $ModuleName -ErrorAction SilentlyContinue)) {Install-Module $ModuleName -Force  -AllowClobber -verbose|out-null}; $true");
+        }
+    }
 }
