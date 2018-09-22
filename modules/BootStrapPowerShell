@@ -2,11 +2,19 @@
 module BootStrapPowerShell
 {
     set @bootStrapPsPackages = @(PSDscResources, PackageManagementProviderResource, PackageManagement);
-    
-    with executionPolicy=always {
-        foreach $ModuleName in @bootStrapPsPackages
-        {
-            set $b = $PSEval("if(!(Get-DscResource -Module $ModuleName -ErrorAction SilentlyContinue)) {Install-Module $ModuleName -Force  -AllowClobber -verbose|out-null}; $true");
-        }
+
+    foreach $ModuleName in @bootStrapPsPackages
+    {
+        PSEnsure
+        (
+            Key: $ModuleName installed,
+            Value: False,
+            Collect: "!(Get-DscResource -Module $ModuleName -ErrorAction SilentlyContinue)",
+            Configure: Install-Module $ModuleName -Force  -AllowClobber -verbose,
+            CollectScriptParams: %(ModuleName: $ModuleName),
+            ConfigureScriptParams: %(ModuleName: $ModuleName)
+        );
+
+       ## set $b = $PSEval("if(!(Get-DscResource -Module $ModuleName -ErrorAction SilentlyContinue)) {Install-Module $ModuleName -Force  -AllowClobber -verbose|out-null}; $true");
     }
 }
