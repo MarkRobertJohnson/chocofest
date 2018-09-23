@@ -11,7 +11,8 @@ module EnsurePowerShellModules<%PowershellModules, $Ensure = Present>
         (
             Otter_ConfigurationKey: Name,
             Name: $moduleName,
-            Version: $moduleVersion,
+            MaximumVersion: $moduleVersion,
+            MinimumVersion: $moduleVersion,
             Ensure: $Ensure
         );
     }
