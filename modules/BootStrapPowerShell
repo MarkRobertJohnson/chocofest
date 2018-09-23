@@ -10,7 +10,7 @@ module BootStrapPowerShell
             Key: $ModuleName installed,
             Value: False,
             Collect: "!(Get-DscResource -Module $ModuleName -ErrorAction SilentlyContinue)",
-            Configure: Install-Module $ModuleName -Force  -AllowClobber -verbose,
+            Configure: Install-Module $ModuleName -Force  -AllowClobber -verbose -SkipPublisherCheck,
             CollectScriptParams: %(ModuleName: $ModuleName),
             ConfigureScriptParams: %(ModuleName: $ModuleName)
         );
