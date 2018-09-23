@@ -2,17 +2,18 @@
 module BootStrapChocolatey
 {
     
-  #  PSDsc chocolatey::ChocolateySoftware
-  #  (
-  #      Otter_ConfigurationKey: InstallationDirectory,
-  #      Ensure: Present
-  #  );
-
-    Ensure-DscResource
+    PSDsc chocolatey::ChocolateySoftware
     (
-        ConfigurationKey: PackageFeedUrl,
-        Module: chocolatey,
-        Resource: ChocolateySoftware,
-        Properties: %( Ensure: Present, PackageFeedUrl: http://s16-dev:8624/nuget/chocolatey/ )
+        Otter_ConfigurationKey: PackageFeedUrl,
+        Ensure: Present, 
+        PackageFeedUrl: http://s16-dev:8624/nuget/chocolatey/
     );
+
+   # Ensure-DscResource
+   # (
+   #     ConfigurationKey: PackageFeedUrl,
+   #     Module: chocolatey,
+   #     Resource: ChocolateySoftware,
+   #     Properties: %( Ensure: Present, PackageFeedUrl: http://s16-dev:8624/nuget/chocolatey/ )
+   # );
 }
