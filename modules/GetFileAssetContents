@@ -4,7 +4,9 @@ module GetFileAssetContents<$FileAssetName, out $Contents>
 {
     Log-Warning Getting file asset contents from $FileAssetName;
 
-    Get-Asset $FileAssetName;
-
-    set $Contents = $FileContents($FileAssetName);
+    with executionPolicy=always {
+        Get-Asset $FileAssetName;
+    
+        set $Contents = $FileContents($FileAssetName);
+    }
 }
