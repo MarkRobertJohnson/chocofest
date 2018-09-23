@@ -4,8 +4,9 @@ module BootStrapChocolatey
     
     PSDsc chocolatey::ChocolateySoftware
     (
-        Otter_ConfigurationKey: PackageFeedUrl,
+        Otter_ConfigurationKey: ChocolateyPackageUrl,
         Ensure: Present, 
+        ChocolateyPackageUrl: http://s16-dev:8624/nuget/chocolatey/,
         PackageFeedUrl: http://s16-dev:8624/nuget/chocolatey/
     );
 
