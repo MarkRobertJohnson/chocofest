@@ -1,4 +1,3 @@
-##AH:UseTextMode
 ##AH:Description Ensures the provided list of PowerShell modules is installed
 module EnsurePowerShellModules<%PowershellModules, $Ensure = Present>
 {
@@ -6,7 +5,9 @@ module EnsurePowerShellModules<%PowershellModules, $Ensure = Present>
     foreach $moduleName in @MapKeys(%PowershellModules)
     {
         set $moduleVersion = %PowershellModules[$moduleName];
-        Log-Information "$moduleName at version $moduleVersion";
+
+        Log-Warning $moduleName at version $moduleVersion;
+
         PSDsc PackagemanagementProviderresource::PackageManagement
         (
             Otter_ConfigurationKey: Name,
