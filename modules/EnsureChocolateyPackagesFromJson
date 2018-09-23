@@ -1,3 +1,13 @@
-module EnsureChocolateyPackagesFromJson
+##AH:Description Expects a JSON format like:
+##AH:Description {
+##AH:Description "package.name": "version"
+##AH:Description }
+module EnsureChocolateyPackagesFromJson<$PackageJson = "", $PackageJsonFileAsset = "">
 {
+    set %chocolateyPackages = %FromJson("");
+
+    call EnsureChocolateyPackages
+    (
+        ChocolateyPackages: %chocolateyPackages
+    );
 }
