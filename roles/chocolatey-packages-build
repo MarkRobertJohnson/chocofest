@@ -1,0 +1,4 @@
+call EnsureChocolateyPackagesFromJson
+(
+    PackageJsonFileAsset: common-choco-packages.json
+);
