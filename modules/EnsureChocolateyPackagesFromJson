@@ -5,14 +5,18 @@
 ##AH:Description }
 module EnsureChocolateyPackagesFromJson<$PackageJson = "", $PackageJsonFileAsset = "">
 {
+    Log-Warning Getting json file asset contents from $PackageJsonFileAsset;
     call GetFileAssetContents
     (
         FileAssetName: common-choco-packages.json,
         Contents => $Contents
     );
+    
+    Log-Warning $Contents;
 
     set %chocolateyPackages = %FromJson($Contents);
 
+    Log-Warning Ensuring Chocolatey packages;
     call EnsureChocolateyPackages
     (
         ChocolateyPackages: %chocolateyPackages
