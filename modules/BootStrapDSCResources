@@ -3,6 +3,6 @@ module BootStrapDSCResources
 {
     call EnsurePowerShellModules
     (
-        PowershellModules: %(chocolatey:0.10.11)
+        PowershellModules: %(chocolatey:0.0.50)
     );
 }
