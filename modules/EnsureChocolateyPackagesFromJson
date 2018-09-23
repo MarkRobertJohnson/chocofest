@@ -6,16 +6,18 @@
 module EnsureChocolateyPackagesFromJson<$PackageJson = "", $PackageJsonFileAsset = "">
 {
     Log-Warning Getting json file asset contents from $PackageJsonFileAsset;
-    call GetFileAssetContents
-    (
-        FileAssetName: common-choco-packages.json,
-        Contents => $Contents
-    );
+    with executionPolicy=always {
+        call GetFileAssetContents
+        (
+            FileAssetName: common-choco-packages.json,
+            Contents => $Contents
+        );
+        
+        Log-Warning $Contents;
     
-    Log-Warning $Contents;
-
-    set %chocolateyPackages = %FromJson($Contents);
-
+        set %chocolateyPackages = %FromJson($Contents);
+    }
+    
     Log-Warning Ensuring Chocolatey packages;
     call EnsureChocolateyPackages
     (
