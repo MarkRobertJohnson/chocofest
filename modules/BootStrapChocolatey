@@ -3,7 +3,7 @@ module BootStrapChocolatey
 {
     PSDsc chocolatey::ChocolateySoftware
     (
-        Otter_ConfigurationKey: Chocolatey Installed,
+        Otter_ConfigurationKey: InstallationDirectgory,
         Ensure: Present
     );
 }
