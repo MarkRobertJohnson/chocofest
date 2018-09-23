@@ -10,9 +10,9 @@ module BootStrapChocolatey
 
     Ensure-DscResource
     (
-        ConfigurationKey: Resource,
+        ConfigurationKey: PackageFeedUrl,
         Module: chocolatey,
         Resource: ChocolateySoftware,
-        Properties: %( Ensure: Present )
+        Properties: %( Ensure: Present, PackageFeedUrl: http://s16-dev:8624/nuget/chocolatey/ )
     );
 }
