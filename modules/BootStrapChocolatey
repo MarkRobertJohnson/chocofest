@@ -1,20 +1,10 @@
 ##AH:UseTextMode
 module BootStrapChocolatey
 {
-    
     PSDsc chocolatey::ChocolateySoftware
     (
-        Otter_ConfigurationKey: ChocolateyPackageUrl,
-        Ensure: Present, 
-        ChocolateyPackageUrl: http://s16-dev:8624/nuget/chocolatey/,
+        Otter_ConfigurationKey: PackageFeedUrl,
+        Ensure: Present,
         PackageFeedUrl: http://s16-dev:8624/nuget/chocolatey/
     );
-
-   # Ensure-DscResource
-   # (
-   #     ConfigurationKey: PackageFeedUrl,
-   #     Module: chocolatey,
-   #     Resource: ChocolateySoftware,
-   #     Properties: %( Ensure: Present, PackageFeedUrl: http://s16-dev:8624/nuget/chocolatey/ )
-   # );
 }
