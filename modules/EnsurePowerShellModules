@@ -6,7 +6,7 @@ module EnsurePowerShellModules<%PowershellModules, $Ensure = Present>
     foreach $moduleName in @MapKeys(%PowershellModules)
     {
         set $moduleVersion = %PowershellModules[$moduleName];
-
+        Log-Information "$moduleName at version $moduleVersion";
         PSDsc PackagemanagementProviderresource::PackageManagement
         (
             Otter_ConfigurationKey: Name,
