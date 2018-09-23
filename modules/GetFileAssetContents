@@ -6,7 +6,8 @@ module GetFileAssetContents<$FileAssetName, out $Contents>
 
     with executionPolicy=always {
         Get-Asset $FileAssetName;
-    
-        set $Contents = $FileContents($FileAssetName);
     }
+        
+    set $Contents = $FileContents($FileAssetName);
+    
 }
