@@ -1,14 +1,16 @@
-##AH:UseTextMode
 ##AH:Description Ensures the provided list of PowerShell modules is installed
-module EnsurePowerShellModules<@PowershellModules, $Ensure = Present>
+module EnsurePowerShellModules<%PowershellModules, $Ensure = Present>
 {
     # Loop over Module list to install
-    foreach $ModuleName in @PowershellModules
+    foreach $moduleName in @MapKeys(%expectedServerVarValues)
     {
+        set $moduleVersion = %expectedServerVarValues[$moduleName];
+
         PSDsc PackagemanagementProviderresource::PackageManagement
         (
             Otter_ConfigurationKey: Name,
-            Name: $ModuleName,
+            Name: $moduleName,
+            Version: $moduleVersion,
             Ensure: $Ensure
         );
     }
