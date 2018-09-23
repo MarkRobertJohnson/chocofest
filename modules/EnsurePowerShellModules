@@ -1,3 +1,4 @@
+##AH:UseTextMode
 ##AH:Description Ensures the provided list of PowerShell modules is installed
 module EnsurePowerShellModules<%PowershellModules, $Ensure = Present>
 {
@@ -6,7 +7,7 @@ module EnsurePowerShellModules<%PowershellModules, $Ensure = Present>
     {
         set $moduleVersion = %PowershellModules[$moduleName];
 
-        Log-Warning $moduleName at version $moduleVersion;
+        Log-Information Ensuring PowerShell module $moduleName $moduleVersion;
 
         PSDsc PackagemanagementProviderresource::PackageManagement
         (
