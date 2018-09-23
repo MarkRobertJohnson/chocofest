@@ -1,4 +1,12 @@
-call EnsureChocolateyPackagesFromJson
+##AH:UseTextMode
+
+
+#call EnsureChocolateyPackagesFromJson
+#(
+#    PackageJsonFileAsset: common-choco-packages.json
+#);
+
+call EnsureChocolateyPackages
 (
-    PackageJsonFileAsset: common-choco-packages.json
+    ChocolateyPackages: %ChocolateyPackagesBuild
 );
