@@ -6,4 +6,12 @@ module BootStrapChocolatey
         Otter_ConfigurationKey: InstallationDirectory,
         Ensure: Present
     );
+
+    Ensure-DscResource
+    (
+        ConfigurationKey: Resource,
+        Module: chocolatey,
+        Resource: ChocolateySoftware,
+        Properties: %( Ensure: Present )
+    );
 }
