@@ -1,7 +1,8 @@
+##AH:UseTextMode
 module BootStrapDSCResources
 {
     call EnsurePowerShellModules
     (
-        PowershellModules: %(chocolatey:)
+        PowershellModules: %(chocolatey:0.10.11)
     );
 }
