@@ -2,6 +2,6 @@ module BootStrapDSCResources
 {
     call EnsurePowerShellModules
     (
-        PowershellModules: @(chocolatey)
+        PowershellModules: %(chocolatey:)
     );
 }
