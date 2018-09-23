@@ -1,7 +1,7 @@
 ##AH:UseTextMode
 module BootStrapChocolatey
 {
-    PSDsc chocolatey:ChocolateySoftware
+    PSDsc chocolatey::ChocolateySoftware
     (
         Otter_ConfigurationKey: Chocolatey Installed,
         Ensure: Present
