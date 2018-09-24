@@ -28,7 +28,7 @@ module EnsureChocolateyPackages<%ChocolateyPackages, $Source = "">
             Version: $PackageVersion,
             Ensure: Present,
             Source: http://s16-dev:8624/nuget/chocolatey/,
-            AutoUpgrade: $True
+            AutoUpgrade: True
         )
     }
 }
