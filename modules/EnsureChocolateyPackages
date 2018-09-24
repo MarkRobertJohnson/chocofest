@@ -16,7 +16,7 @@ module EnsureChocolateyPackages<%ChocolateyPackages, $Source = "">
         #);
         
         PSDsc chocolatey::ChocolateyPackage (
-            Otter_configurationKey: Name,
+            Otter_ConfigurationKey: Name,
             Name: $PackageName,
             Version: $PackageVersion,
             Ensure: Present
