@@ -8,11 +8,17 @@ module EnsureChocolateyPackages<%ChocolateyPackages, $Source = "">
 
         Log-Information Ensuring Chocolatey package $packageName $packageVersion;
 
-        Chocolatey::Ensure-Package
-        (
-            Name: $PackageName,
-            Version: $PackageVersion,
-            Source: $Source
+        #Chocolatey::Ensure-Package
+        #(
+        #    Name: $PackageName,
+        #    Version: $PackageVersion,
+        #    Source: $Source
+        #);
+        
+        PSDsc chocolatey:ChocolateyPackage (
+          Name: $PackageName,
+          Version: $PackageVersion,
+          Ensure: Present
         );
     }
 }
