@@ -15,7 +15,7 @@ module EnsureChocolateyPackages<%ChocolateyPackages, $Source = "">
         #    Source: $Source
         #);
         
-        PSDsc chocolatey:ChocolateyPackage (
+        PSDsc chocolatey::ChocolateyPackage (
           Name: $PackageName,
           Version: $PackageVersion,
           Ensure: Present
