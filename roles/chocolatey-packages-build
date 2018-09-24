@@ -1,12 +1,6 @@
 ##AH:UseTextMode
 
-
-#call EnsureChocolateyPackagesFromJson
-#(
-#    PackageJsonFileAsset: common-choco-packages.json
-#);
-
 call EnsureChocolateyPackages
 (
-    ChocolateyPackages: %ChocolateyPackagesBuild
+    ChocolateyPackages: %FromJson($ChocolateyPackagesBuild)
 );
