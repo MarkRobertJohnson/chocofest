@@ -3,5 +3,5 @@
 call EnsureChocolateyPackages
 (
    # ChocolateyPackages: %FromJson($ChocolateyPackagesBuildJson)
-   ChocolateyPackages: "{}"
+   ChocolateyPackages: %FromJson("{foo:1}")
 );
