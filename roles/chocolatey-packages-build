@@ -2,5 +2,6 @@
 
 call EnsureChocolateyPackages
 (
-    ChocolateyPackages: %FromJson($ChocolateyPackagesBuildJson)
+   # ChocolateyPackages: %FromJson($ChocolateyPackagesBuildJson)
+   ChocolateyPackages: "{}"
 );
