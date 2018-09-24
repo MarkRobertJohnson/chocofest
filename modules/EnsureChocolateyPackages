@@ -1,6 +1,7 @@
 ##AH:UseTextMode
 module EnsureChocolateyPackages<%ChocolateyPackages, $Source = "">
 {
+    set %ChocolateyPackages = %FromJson($ChocolateyPackagesBuildJson);
     # Loop over Module list to install
     foreach $packageName in @MapKeys(%ChocolateyPackages)
     {
