@@ -24,21 +24,21 @@ module EnsureChocolateyPackages<%ChocolateyPackages, $Source = "">
         #Source: http://s16-dev:8624/nuget/chocolatey/
         #);
         # 
-        PSDsc chocolatey::ChocolateyPackage (
-        Otter_ConfigurationKey: Name,
-        Name: $PackageName,
-        Version: $PackageVersion,
-        Ensure: Present
-        );
-        #PSDsc cChoco::cchocopackageinstaller
-        #(
-        #    Otter_ConfigurationKey: Name,
-        #    Name: $PackageName,
-        #    Version: $PackageVersion,
-        #    Ensure: Present,
-        #    Source: http://s16-dev:8624/nuget/chocolatey/,
-        #    AutoUpgrade: True
+        #PSDsc chocolatey::ChocolateyPackage (
+        #Otter_ConfigurationKey: Name,
+        #Name: $PackageName,
+        #Version: $PackageVersion,
+        #Ensure: Present
         #);
+        PSDsc cChoco::cchocopackageinstaller
+        (
+            Otter_ConfigurationKey: Name,
+            Name: $PackageName,
+            Version: $PackageVersion,
+            Ensure: Present,
+            Source: http://s16-dev:8624/nuget/chocolatey/,
+            AutoUpgrade: True
+        );
+    
     }
-
 }
