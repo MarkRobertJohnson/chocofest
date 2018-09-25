@@ -1,17 +1,13 @@
 ##AH:UseTextMode
 module BootStrapChocolatey
 {
-        #PSDsc chocolatey::ChocolateySoftware
-    #(
-    #    Otter_ConfigurationKey: Ensure,
-    #    Ensure: Present,
-    #    PackageFeedUrl: $ChocolateyFeedUrl
-    #);
-    
-    Chocolatey::Ensure-Installed
+    PSDsc chocolatey::ChocolateySoftware
     (
-        Version: latest
+        Otter_ConfigurationKey: Ensure,
+        Ensure: Present,
+        PackageFeedUrl: $ChocolateyFeedUrl
     );
+    
 
     Chocolatey::Ensure-Source
     (
