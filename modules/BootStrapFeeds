@@ -1,48 +1,20 @@
 ##AH:UseTextMode
 module BootStrapFeeds
 {
-    #PSDsc chocolatey::ChocolateySource
-    #(
-    #Otter_ConfigurationKey: Name,
-    #Name: chocolatey,
-    #Ensure: Absent
-    #);
-    #
     PSDsc chocolatey::ChocolateySource
     (
-    Otter_ConfigurationKey: Name,
-    Name: Default,
-    Ensure: Present,
-    Source: $ChocolateyFeedUrl
+        Otter_ConfigurationKey: Source,
+        Name: Default,
+        Ensure: Present,
+        Source: $ChocolateyFeedUrl
     );
     
     PSDsc chocolatey::ChocolateySource
     (
-    Otter_ConfigurationKey: Name,
-    Name: chocolatey,
-    Ensure: Present,
-    Source: https://chocolatey.org/api/v2/
+        Otter_ConfigurationKey: Source,
+        Name: chocolatey,
+        Ensure: Absent,
+        Source: https://chocolatey.org/api/v2/
     );
-    
-    # Remove the default chocolatey feed, so the new feed takes priority (they are both priority 0)
-   #Chocolatey::Ensure-Source
-   #(
-   #    Name: chocolatey,
-   #    Url: $ChocolateyFeedUrl,
-   #    Exists: false
-   #);
-   #
-   #
-   #Chocolatey::Ensure-Source
-   #(
-   #    Name: Default,
-   #    Url: $ChocolateyFeedUrl
-   #);
-   #
-   ## Re-add the default chocolatey URL
-   #Chocolatey::Ensure-Source
-   #(
-   #    Name: chocolatey,
-   #    Url: https://chocolatey.org/api/v2/
-   #);
+
 }#
