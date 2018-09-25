@@ -5,6 +5,6 @@ module BootStrapChocolatey
     (
         Otter_ConfigurationKey: Ensure,
         Ensure: Present,
-        PackageFeedUrl: http://s16-dev:8624/nuget/chocolatey/
+        PackageFeedUrl: $ChocolateyFeedUrl
     );
 }
