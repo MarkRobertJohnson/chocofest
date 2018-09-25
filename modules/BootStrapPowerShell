@@ -17,4 +17,12 @@ module BootStrapPowerShell
 
        ## set $b = $PSEval("if(!(Get-DscResource -Module $ModuleName -ErrorAction SilentlyContinue)) {Install-Module $ModuleName -Force  -AllowClobber -verbose|out-null}; $true");
     }
+    
+    PSEnsure
+    (
+      Key: PowerShell MaxEnvelopeSizekb,
+      Value: True,
+      Collect: "(Get-Item WSMan:\localhost\MaxEnvelopeSizekb).Value -eq 100000",
+      Configure: "Set-Item WSMan:\localhost\MaxEnvelopeSizekb -Value 100000"
+    );
 }
