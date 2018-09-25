@@ -1,7 +1,15 @@
 ##AH:UseTextMode
 module EnsureChocolateyPackages<%ChocolateyPackages, $Source = "">
 {
+    set $ChocolateyPackagesBuildJson = >>
+{
+    "git.install": "2.18.0",
+    "nodejs.install": "10.11.0",
+}
+>>;
+
     set %ChocolateyPackages = %FromJson($ChocolateyPackagesBuildJson);
+
     # Loop over Module list to install
     foreach $packageName in @MapKeys(%ChocolateyPackages)
     {
@@ -9,27 +17,28 @@ module EnsureChocolateyPackages<%ChocolateyPackages, $Source = "">
 
         Log-Information Ensuring Chocolatey package $packageName $packageVersion;
 
-        #Chocolatey::Ensure-Package
-        #(
-        #    Name: $PackageName,
-        #    Version: $PackageVersion,
-        #    Source: http://s16-dev:8624/nuget/chocolatey/
-        #);
-        #
-        #PSDsc chocolatey::ChocolateyPackage (
-        #    Otter_ConfigurationKey: Name,
-        #    Name: $PackageName,
-        #    Version: $PackageVersion,
-        #    Ensure: Present
-        #);
-        
-        PSDsc cChoco::cchocopackageinstaller (
+        # Chocolatey::Ensure-Package
+        # (
+        # Name: $PackageName,
+        # Version: $PackageVersion,
+        # Source: http://s16-dev:8624/nuget/chocolatey/
+        # );
+        # 
+        # PSDsc chocolatey::ChocolateyPackage (
+        # Otter_ConfigurationKey: Name,
+        # Name: $PackageName,
+        # Version: $PackageVersion,
+        # Ensure: Present
+        # );
+        PSDsc cChoco::cchocopackageinstaller
+        (
             Otter_ConfigurationKey: Name,
             Name: $PackageName,
             Version: $PackageVersion,
             Ensure: Present,
             Source: http://s16-dev:8624/nuget/chocolatey/,
             AutoUpgrade: True
-        )
+        );
     }
+
 }
