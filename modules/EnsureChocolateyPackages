@@ -28,7 +28,7 @@ module EnsureChocolateyPackages<%ChocolateyPackages, $Source = "">
         Otter_ConfigurationKey: Name,
         Name: $PackageName,
         Version: $PackageVersion,
-        Ensure: Absent
+        Ensure: Present
         );
         #PSDsc cChoco::cchocopackageinstaller
         #(
