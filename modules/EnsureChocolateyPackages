@@ -38,7 +38,7 @@ module EnsureChocolateyPackages<%ChocolateyPackages, $Source = "">
             Ensure: Present,
             Source: http://s16-dev:8624/nuget/chocolatey/,
             AutoUpgrade: True,
-            Params: "--no-progress"
+            Params: "--no-progress --limit-output"
         );
     
     }
