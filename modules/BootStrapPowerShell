@@ -8,14 +8,12 @@ module BootStrapPowerShell
         PSEnsure
         (
             Key: $ModuleName installed,
-            Value: False,
-            Collect: "!(Get-DscResource -Module $ModuleName -ErrorAction SilentlyContinue)",
+            Value: True,
+            Collect: "!!(Get-DscResource -Module $ModuleName -ErrorAction SilentlyContinue)",
             Configure: Install-Module $ModuleName -Force  -AllowClobber -verbose -SkipPublisherCheck,
             CollectScriptParams: %(ModuleName: $ModuleName),
             ConfigureScriptParams: %(ModuleName: $ModuleName)
         );
-
-       ## set $b = $PSEval("if(!(Get-DscResource -Module $ModuleName -ErrorAction SilentlyContinue)) {Install-Module $ModuleName -Force  -AllowClobber -verbose|out-null}; $true");
     }
     
     PSEnsure
