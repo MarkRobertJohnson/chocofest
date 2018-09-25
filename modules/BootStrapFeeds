@@ -1,8 +1,12 @@
+##AH:UseTextMode
 module BootStrapFeeds
 {
-    Chocolatey::Ensure-Source
+    PSDsc chocolatey::ChocolateySource
     (
+        Otter_ConfigurationKey: Name,
         Name: Default,
-        Url: $ChocolateyFeedUrl
+        Ensure: Present,
+        Source: $ChocolateyFeedUrl,
+        Priority: 0
     );
 }
