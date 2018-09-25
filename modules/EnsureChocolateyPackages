@@ -1,5 +1,5 @@
 ##AH:UseTextMode
-module EnsureChocolateyPackages<%ChocolateyPackages, $Source = "">
+module EnsureChocolateyPackages<%ChocolateyPackages>
 {
     set $ChocolateyPackagesBuildJson = >>
 {
@@ -23,7 +23,6 @@ module EnsureChocolateyPackages<%ChocolateyPackages, $Source = "">
             Name: $PackageName,
             Version: $PackageVersion,
             Ensure: Present,
-            Source: $Source,
             AutoUpgrade: True,
             Params: "--no-progress --limit-output"
         );
