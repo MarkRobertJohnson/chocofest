@@ -1,3 +1,8 @@
 module BootStrapFeeds
 {
+    Chocolatey::Ensure-Source
+    (
+        Name: Default,
+        Url: $ChocolateyFeedUrl
+    );
 }
