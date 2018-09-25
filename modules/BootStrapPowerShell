@@ -21,8 +21,8 @@ module BootStrapPowerShell
     PSEnsure
     (
       Key: PowerShell MaxEnvelopeSizekb,
-      Value: True,
-      Collect: "(Get-Item WSMan:\localhost\MaxEnvelopeSizekb).Value -eq 100000",
-      Configure: "Set-Item WSMan:\localhost\MaxEnvelopeSizekb -Value 100000"
+      Value: $PowerShell_MaxEnvelopeSizekb,
+      Collect: "(Get-Item WSMan:\localhost\MaxEnvelopeSizekb).Value",
+      Configure: "Set-Item WSMan:\localhost\MaxEnvelopeSizekb -Value $PowerShell_MaxEnvelopeSizekb"
     );
 }
