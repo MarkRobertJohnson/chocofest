@@ -5,7 +5,7 @@ module BootStrapPowerShellGet
     (
         Key: Nuget Package Provider Installed,
         Value: True,
-        Collect: "! !(get-packageprovider -name Nuget  -erroraction silentlycontinue)",
+        Collect: "!!(get-packageprovider -name Nuget  -erroraction silentlycontinue)",
         Configure: " get-packageprovider -name Nuget  -Force -ForceBootstrap -Verbose"
     );
 }
