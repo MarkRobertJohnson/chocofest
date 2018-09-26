@@ -15,4 +15,12 @@ module BootStrapPowerShell
             ConfigureScriptParams: %(ModuleName: $ModuleName)
         );
     }
+    
+    PSEnsure
+    (
+        Key: PowerShell MaxEnvelopeSizekb,
+        Value: $PowerShell_MaxEnvelopeSizekb,
+        Collect: "(Get-Item WSMan:\localhost\MaxEnvelopeSizekb).Value",
+        Configure: "Set-Item WSMan:\localhost\MaxEnvelopeSizekb -Value $PowerShell_MaxEnvelopeSizekb"
+    );
 }
