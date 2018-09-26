@@ -8,13 +8,20 @@ module BootStrapFeeds
         Ensure: Present,
         Source: $ChocolateyFeedUrl
     );
-    
-    PSDsc chocolatey::ChocolateySource
-    (
-        Otter_ConfigurationKey: Name,
-        Name: chocolatey,
-        Ensure: Absent,
-        Source: https://chocolatey.org/api/v2/
-    );
 
-}#
+    # Try/Catch
+    try
+    {
+        PSDsc chocolatey::ChocolateySource
+        (
+            Otter_ConfigurationKey: Name,
+            Name: chocolatey,
+            Ensure: Absent,
+            Source: https://chocolatey.org/api/v2/
+        );
+    }
+    catch
+    {
+        Log-Warning Failed to remove chocolatey default source;
+    }
+}
