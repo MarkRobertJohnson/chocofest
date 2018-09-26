@@ -9,6 +9,14 @@ module BootStrapFeeds
         Source: $ChocolateyFeedUrl
     );
 
+    PSDsc chocolatey::ChocolateySource
+    (
+        Otter_ConfigurationKey: Name,
+        Name: chocolatey,
+        Ensure: Present,
+        Source: https://chocolatey.org/api/v2/
+    );
+
 
     PSDsc chocolatey::ChocolateySource
     (
