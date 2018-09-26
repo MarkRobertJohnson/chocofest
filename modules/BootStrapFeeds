@@ -3,7 +3,7 @@ module BootStrapFeeds
 {
     PSDsc chocolatey::ChocolateySource
     (
-        Otter_ConfigurationKey: Source,
+        Otter_ConfigurationKey: Name,
         Name: Default,
         Ensure: Present,
         Source: $ChocolateyFeedUrl
@@ -11,7 +11,7 @@ module BootStrapFeeds
     
     PSDsc chocolatey::ChocolateySource
     (
-        Otter_ConfigurationKey: Source,
+        Otter_ConfigurationKey: Name,
         Name: chocolatey,
         Ensure: Absent,
         Source: https://chocolatey.org/api/v2/
