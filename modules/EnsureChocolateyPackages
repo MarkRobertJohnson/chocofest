@@ -17,8 +17,7 @@ module EnsureChocolateyPackages<%ChocolateyPackages>
             Name: $PackageName,
             Version: $PackageVersion,
             Ensure: Present,
-            AutoUpgrade: True,
-            Params: ""
+            AutoUpgrade: True
         );
     
     }
