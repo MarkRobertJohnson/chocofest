@@ -18,7 +18,7 @@ module EnsureChocolateyPackages<%ChocolateyPackages>
             Version: $PackageVersion,
             Ensure: Present,
             AutoUpgrade: True,
-            Params: "--no-progress --limit-output"
+            Params: ""
         );
     
     }
