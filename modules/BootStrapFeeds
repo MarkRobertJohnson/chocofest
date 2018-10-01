@@ -18,17 +18,17 @@ module BootStrapFeeds
 
     PSEnsure
     (
-        Key: PSGallery does not exist,
-        Value: True,
-        Collect: "!(Get-PSrepository -Name PSGallery -ErrorAction SilentlyContinue)",
-        Configure: Unregister-PSRepository -Name psgallery
-    );
-    
-    PSEnsure
-    (
         Key: Default PowerShell module feed does exist,
         Value: True,
         Collect: "!!(Get-PSrepository -Name Default -ErrorAction SilentlyContinue)",
         Configure: "Register-PSRepository -Name Default -SourceLocation http://s16-dev:8624/nuget/powershell/ -PublishLocation http://s16-dev:8624/nuget/powershell/ -ScriptSourceLocation https://www.powershellgallery.com/api/v2 -ScriptPublishLocation https://www.powershellgallery.com/api/v2 -InstallationPolicy Trusted -Verbose"
+    );
+    
+    PSEnsure
+    (
+        Key: PSGallery does not exist,
+        Value: True,
+        Collect: "!(Get-PSrepository -Name PSGallery -ErrorAction SilentlyContinue)",
+        Configure: Unregister-PSRepository -Name psgallery
     );
 }
