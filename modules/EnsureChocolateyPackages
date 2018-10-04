@@ -2,23 +2,4 @@
 module EnsureChocolateyPackages<%ChocolateyPackages>
 {
 
-    set %ChocolateyPackages = %FromJson($ChocolateyPackagesBuildJson);
-
-    # Loop over Module list to install
-    foreach $packageName in @MapKeys(%ChocolateyPackages)
-    {
-        set $packageVersion = %ChocolateyPackages[$packageName];
-
-        Log-Information Ensuring Chocolatey package $packageName $packageVersion;
-
-        PSDsc cChoco::cchocopackageinstaller
-        (
-            Otter_ConfigurationKey: Name,
-            Name: $PackageName,
-            Version: $PackageVersion,
-            Ensure: Present,
-            AutoUpgrade: True
-        );
-    
-    }
 }
