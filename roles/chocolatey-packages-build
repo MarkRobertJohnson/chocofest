@@ -1,0 +1,6 @@
+##AH:UseTextMode
+
+call EnsureChocolateyPackages
+(
+   ChocolateyPackages: %()
+);
