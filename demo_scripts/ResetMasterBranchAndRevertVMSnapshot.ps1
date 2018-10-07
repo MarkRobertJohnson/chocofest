@@ -96,6 +96,7 @@ Reset-Branch -Branch master -Path $RepoPath -Commit e9a66db194bcbb2bd16faa983a90
 
 #Reset dev to the version that does not have powershell-core-internal
 Reset-Branch -Branch dev -Path $RepoPath -Commit 1f4040049e934b6e4751831cd225c02325a33990
+
 <#
 #Pre-demo 2 state: 2a300ac918f7bfd55d8c7d793d92932f36bb3f32
 
